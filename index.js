@@ -240,7 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ghosts.forEach(ghost => clearInterval(ghost.timerId))
             document.removeEventListener('keyup', movePacman)
             scoreDisplay.innerHTML = 'GAME OVER';
-
+            setTimeout(function(){ alert("Click on NEW GAME to play again!"); }, 500)
+            dead.play();
+            
             var x = document.getElementById("myBtn");
             x.style.display = "block";
 
@@ -255,13 +257,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 highestScoreDisplay.innerHTML = score;
             }
             //setTimeout(function(){ alert("Game Over"); }, 500)
-            dead.play();
+            
         }
     }
     //check for a win - more is when this score is reached
     function checkForWin() {
         console.log(score);
-        if (score === 5) {
+        if (score === 274) {
             ghosts.forEach(ghost => clearInterval(ghost.timerId))
             document.removeEventListener('keyup', movePacman)
             setTimeout(function () { alert("You have WON!"); }, 500)
