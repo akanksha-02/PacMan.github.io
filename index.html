@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACMAN MENU</title>
+     
+   
+    <style>
+        body {
+            background: linear-gradient(90deg, rgba(2, 0, .6, 1)0%, rgba(9, 9, 121, 1)45%, rgba(0, 212, 255, 1)100%);
+        }
+
+        button {
+            background-color: grey;
+            border: none !important;
+            color: white;
+            padding: 20px 40px;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin:0 auto;
+            margin-bottom: 10px;
+            width:10%;
+        }
+
+        button:focus {
+            outline: none;
+        }
+        .container {
+            text-align: center;
+            margin-top: 15%;
+        }
+        #button1:hover {
+        background-color:black ;
+        text-decoration: underline;
+        }
+        #button2:hover {
+        background-color:black  ;
+        text-decoration: underline;
+        }
+        #button3:hover {
+        background-color:black ;
+        text-decoration: underline;
+        }
+        #image{
+            width: 450px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+            
+        }
+
+
+      
+    </style>
+
+  
+
+</head>
+
+<body>
+    
+    <div>
+        <img src="./images/aboutpac.jpg" id="image" alt="About PacMan" />
+   </div>
+
+    <div class="container">
+        
+        <button id="button1">PLAY</button>
+        <button id="button2">QUIT</button>
+        <button id="button3" onclick="imageShow()">ABOUT</button>
+      
+    </div>
+
+    
+    <script type="text/javascript">
+        document.getElementById("button1").onclick = function () {
+            location.href = "main.html";
+        };
+        document.getElementById("button2").onclick = function () {
+            location.href = "https://www.google.com/";
+        };
+        function imageShow(){
+                    document.getElementById('image').style.display = "block";
+                }
+                
+    </script>
+</body>
+
+</html
+          
+
+
+    
+
+
