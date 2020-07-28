@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function () { alert("You have WON!"); }, 500)
             winning.play();
             var img = document.createElement("img");
-            img.src = "./images/youwin.jpg";
+            img.src = "youwin.jpg";
             // var imgClass = document.getElementsByClassName("grid")
             var src = document.getElementById("win");
             src.innerHTML = "";
