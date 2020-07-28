@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let dead = new Audio();
     let winning = new Audio();
 
-    up.src = "audio/up.mp3";
-    right.src = "audio/right.mp3";
-    left.src = "audio/left.mp3";
-    down.src = "audio/down.mp3";
-    powerpellet.src = "audio/powerpellet.aac";
-    eat.src = "audio/eat.mp3";
-    dead.src = "audio/dead.mp3";
-    winning.src = "audio/winning.mpeg";
+    up.src = "up.mp3";
+    right.src = "right.mp3";
+    left.src = "left.mp3";
+    down.src = "down.mp3";
+    powerpellet.src = "powerpellet.aac";
+    eat.src = "eat.mp3";
+    dead.src = "dead.mp3";
+    winning.src = "winning.mpeg";
 
     //create your board
     function createBoard() {
