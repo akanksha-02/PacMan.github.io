@@ -1,3 +1,7 @@
+@charset "utf-8";
+
+
+    
 body{
     text-align: center;
 }
@@ -66,7 +70,7 @@ button:hover {
 .bg{
     width: 25px;
     height: 25px;
-    background-image: url('bg.png');
+    background-image: url('./images/bg.png');
     display: inline-block;
 }
 
@@ -77,7 +81,7 @@ button:hover {
     border: solid gray;*/
     width: 25px;
     height: 25px;
-    background-image: url('coin1.png');
+    background-image: url('./images/coin1.png');
     display: inline-block;
 }
 
@@ -85,7 +89,7 @@ button:hover {
     /*background-color: blue;*/
     width: 25px;
     height: 25px;
-    background-image: url('wall.png');
+    background-image: url('./images/wall.png');
     display: inline-block;
 }
 
@@ -110,14 +114,53 @@ button:hover {
     background-color: olive;     
 }
 
+ /*Legends CSS*/
 .pac-man {
-    background-color: orange;
-    border-radius: 10px;
-    /*width: 25px;
-    height: 25px;
-    background-image: url('pacman.png');
-    display: inline-block;*/
-}
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #F2D648;
+    position: relative;
+  }
+  
+  .pacman-eye {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 20px;
+    right: 40px;
+    background: #333333;
+  }
+  
+  .pacman-mouth {
+    background: #000;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    animation-name: eat;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes eat {
+    0% {
+      clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+    25% {
+      clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+    }
+    50% {
+      clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+    }
+    75% {
+     clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+    }
+    100% {
+     clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+  }
 
 .scared-ghost {
     background-color: aquamarine;
