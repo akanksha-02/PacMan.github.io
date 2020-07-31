@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let dead = new Audio();
     let winning = new Audio();
 
-    up.src = "up.mp3";
-    right.src = "right.mp3";
-    left.src = "left.mp3";
-    down.src = "down.mp3";
-    powerpellet.src = "powerpellet.aac";
-    eat.src = "eat.mp3";
-    dead.src = "dead.mp3";
-    winning.src = "winning.mpeg";
+    up.src = "audio/up.mp3";
+    right.src = "audio/right.mp3";
+    left.src = "audio/left.mp3";
+    down.src = "audio/down.mp3";
+    powerpellet.src = "audio/powerpellet.aac";
+    eat.src = "audio/eat.mp3";
+    dead.src = "audio/dead.mp3";
+    winning.src = "audio/winning.mpeg";
 
     //create your board
     function createBoard() {
@@ -95,7 +95,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(getCoordinates(pacmanCurrentIndex))
     //move pacman
     function movePacman(e) {
+        //         if (pacman.isImmune) {
+        //             squares[pacmanCurrentIndex].classList.remove('immune-pac-man')
+        //         }
+        //         else{
+        document.getElementsByClassName("pac-man")[0].style.backgroundColor = "white";
         squares[pacmanCurrentIndex].classList.remove('pac-man')
+        // }
+        // squares[pacmanCurrentIndex].classList.remove('pac-man')
+        var elements = document.getElementsByClassName("pacman-mouth");
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+
+        // list.removeChild(list.childNodes[0]);
+
+
         switch (e.keyCode) {
             case 37:
                 //left
@@ -145,6 +160,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 break
         }
         squares[pacmanCurrentIndex].classList.add('pac-man')
+        if (pacman.isImmune) {
+            document.getElementsByClassName("pac-man")[0].style.backgroundColor = "red";
+        }
+        var divMouth = document.createElement('div');
+        divMouth.className = 'pacman-mouth';
+        document.getElementsByClassName("pac-man")[0].appendChild(divMouth)
+
+
+
+        // if (pacman.isImmune) {
+        //     squares[pacmanCurrentIndex].classList.add('immune-pac-man')
+        // }
+        // else{
+        // squares[pacmanCurrentIndex].classList.add('pac-man')
+
+        //  }    
         pacDotEaten()
         powerPelletEaten()
         checkForGameOver()
@@ -164,13 +195,31 @@ document.addEventListener('DOMContentLoaded', () => {
     function powerPelletEaten() {
         if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
             score += 10
+            alert('Eaten power pallet')
             ghosts.forEach(ghost => ghost.isScared = true)
             setTimeout(unScareGhosts, 10000)
+            pacman.isImmune = true
+
+            document.getElementsByClassName("pac-man")[0].style.backgroundColor = "red";
+
+            setTimeout(unImmunePacman, 10000)
             squares[pacmanCurrentIndex].classList.remove('power-pellet')
             powerpellet.play();
         }
     }
+    //make the pacman stop flashing
+    function unImmunePacman() {
+        pacman.isImmune = false
+        squares[pacmanCurrentIndex].classList.remove('immune-pac-man')
+    }
 
+    class pacman {
+        constructor() {
+
+            this.isImmune = false
+            this.timerId = NaN
+        }
+    }
     //make the ghosts stop flashing
     function unScareGhosts() {
         ghosts.forEach(ghost => ghost.isScared = false)
@@ -232,17 +281,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //check for a game over
     function checkForGameOver() {
-        /*if (squares[pacmanCurrentIndex].classList.contains('pac-man') &&
-         !squares[pacmanCurrentIndex].classList.contains('ghost') &&*/
+        
 
         if (squares[pacmanCurrentIndex].classList.contains('ghost') &&
             !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
             ghosts.forEach(ghost => clearInterval(ghost.timerId))
             document.removeEventListener('keyup', movePacman)
             scoreDisplay.innerHTML = 'GAME OVER';
-            setTimeout(function(){ alert("Click on NEW GAME to play again!"); }, 500)
-            dead.play();
-            
+            setTimeout(function () { alert("Click on NEW GAME to play again!"); }, 500)
+
             var x = document.getElementById("myBtn");
             x.style.display = "block";
 
@@ -250,14 +297,14 @@ document.addEventListener('DOMContentLoaded', () => {
             var oldScore = parseInt(localStorage.getItem('hScore'));
             //2 is my old score and current is 5
             if (oldScore > score) {
-               
+
             } else {
                 //2 > 5 false so go else
                 localStorage.setItem('hScore', score);
                 highestScoreDisplay.innerHTML = score;
             }
-            //setTimeout(function(){ alert("Game Over"); }, 500)
             
+            dead.play();
         }
     }
     //check for a win - more is when this score is reached
@@ -266,10 +313,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score === 274) {
             ghosts.forEach(ghost => clearInterval(ghost.timerId))
             document.removeEventListener('keyup', movePacman)
-            setTimeout(function () { alert("You have WON!"); }, 500)
+            // setTimeout(function () { alert("You have WON!"); }, 500)
             winning.play();
             var img = document.createElement("img");
-            img.src = "youwin.jpg";
+            img.src = "./images/youwin.jpg";
             // var imgClass = document.getElementsByClassName("grid")
             var src = document.getElementById("win");
             src.innerHTML = "";
@@ -284,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('hScore', score);
                 highestScoreDisplay.innerHTML = score;
             }
-            // document.getElementById("text").innerHTML = "Congratulations";
+            
         }
     }
 })
