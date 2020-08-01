@@ -4,6 +4,8 @@
     
 body{
     text-align: center;
+    min-width: min-content;
+    max-height: max-content;  
 }
 
 .grid {
