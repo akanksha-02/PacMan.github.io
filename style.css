@@ -4,8 +4,7 @@
     
 body{
     text-align: center;
-    min-width: min-content;
-    max-height: max-content;  
+    background: black;
 }
 
 .grid {
@@ -72,7 +71,7 @@ button:hover {
 .bg{
     width: 25px;
     height: 25px;
-    background-image: url('bg.png');
+    background-image: url('./images/bg.png');
     display: inline-block;
 }
 
@@ -83,7 +82,7 @@ button:hover {
     border: solid gray;*/
     width: 25px;
     height: 25px;
-    background-image: url('coin1.png');
+    background-image: url('./images/coin1.png');
     display: inline-block;
 }
 
@@ -91,7 +90,7 @@ button:hover {
     /*background-color: blue;*/
     width: 25px;
     height: 25px;
-    background-image: url('wall.png');
+    background-image: url('./images/wall.png');
     display: inline-block;
 }
 
@@ -102,27 +101,81 @@ button:hover {
 
 .blinky {
     background-color: red;
+    border-top-left-radius:70px;
+    border-top-right-radius:70px;
+    animation:blinky 0.2s infinite;
+}
+
+@keyframes blinky{
+    50%{
+        background:hotpink;
+    }
 }
 
 .pinky {
     background-color: purple;
+    border-top-left-radius:70px;
+    border-top-right-radius:70px;
+    animation:pinky 0.2s infinite;
+}
+
+@keyframes pinky{
+    50%{
+        background:#b19cd9;
+    }
 }
 
 .inky {
     background-color: cyan;
+    border-top-left-radius:70px;
+    border-top-right-radius:70px;
+    animation:inky 0.2s infinite;
+}
+
+@keyframes inky{
+    50%{
+        background:cyan;
+    }
 }
 
 .clyde {
-    background-color: olive;     
+    background-color: olive;
+    border-top-left-radius:70px;
+    border-top-right-radius:70px;
+    animation:clyde 0.2s infinite;     
 }
 
- /*Legends CSS*/
+@keyframes clyde{
+    50%{
+        background:#b8bc86;
+    }
+}
+
+ /* .pac-man {
+    background-color: orange;
+    border-radius: 10px;
+ } */
+    /*width: 25px;
+    height: 25px;
+    background-image: url('pacman.png');
+    display: inline-block;
+}*/
+/* .pac-man{
+    width: 20px;
+    height: 20px;
+    background-color:#f2d648;
+    border-radius: 10px;
+    position: relative;
+} */
+
+/*Legends CSS*/
 .pac-man {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     background: #F2D648;
     position: relative;
+    animation:move 5s linear infinite;
   }
   
   .pacman-eye {
@@ -163,9 +216,23 @@ button:hover {
      clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
     }
   }
+  
+/* .immune-pac-man{
+    background-color: red;
+    border-radius: 10px;
+} */
 
 .scared-ghost {
     background-color: aquamarine;
+    border-top-left-radius:70px;
+    border-top-right-radius:70px;
+    animation:scared-ghost 0.2s infinite;     
+}
+
+@keyframes scared-ghost{
+    50%{
+        background:white;
+    }
 }
 
 /* #text{
