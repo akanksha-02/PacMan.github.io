@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //             squares[pacmanCurrentIndex].classList.remove('immune-pac-man')
         //         }
         //         else{
-        document.getElementsByClassName("pac-man")[0].style.backgroundColor = "white";
+        document.getElementsByClassName("pac-man")[0].style.backgroundColor = "black";
         squares[pacmanCurrentIndex].classList.remove('pac-man')
         // }
         // squares[pacmanCurrentIndex].classList.remove('pac-man')
