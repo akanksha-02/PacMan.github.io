@@ -70,7 +70,7 @@ button:hover {
 .bg{
     width: 25px;
     height: 25px;
-    background-image: url('./images/bg.png');
+    background-image: url('bg.png');
     display: inline-block;
 }
 
@@ -81,7 +81,7 @@ button:hover {
     border: solid gray;*/
     width: 25px;
     height: 25px;
-    background-image: url('./images/coin1.png');
+    background-image: url('coin1.png');
     display: inline-block;
 }
 
@@ -89,7 +89,7 @@ button:hover {
     /*background-color: blue;*/
     width: 25px;
     height: 25px;
-    background-image: url('./images/wall.png');
+    background-image: url('wall.png');
     display: inline-block;
 }
 
